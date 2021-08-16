@@ -11,11 +11,11 @@ open Hamming
 let ``Empty strands`` () =
     distance "" "" |> should equal (Some 0)
 
-[<Fact(Skip = "Remove this Skip property to run this test")>]
+[<Fact>]
 let ``Single letter identical strands`` () =
     distance "A" "A" |> should equal (Some 0)
 
-[<Fact(Skip = "Remove this Skip property to run this test")>]
+[<Fact>]
 let ``Single letter different strands`` () =
     distance "G" "T" |> should equal (Some 1)
 
