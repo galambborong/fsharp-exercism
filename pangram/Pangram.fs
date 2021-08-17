@@ -1,14 +1,14 @@
 ﻿module Pangram
 
-let alphabet = "abcdefghijklmnopqrstuvwxyz"
+let alphabet = "abcdefghijklmnopqrstuvwxyz".ToCharArray()
 
-let handleStringFormatting (string: string) =
+let standardiseInput (string: string) =
     string.Trim().ToLower()
-//    |> string.Split
     |> Seq.sort
-    |> Seq.filter (fun (x) -> x.ToString() <> " ")
-    |> Seq.toList
+    |> Seq.filter (fun x -> x.ToString() <> " ")
+    |> Seq.toArray
 
 let isPangram (input: string): bool =
     match input <> "" with
     | true -> true
+    | false -> standardiseInput input = alphabet
