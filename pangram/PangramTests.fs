@@ -11,15 +11,15 @@ open Pangram
 let ``Empty sentence`` () =
     isPangram "" |> should equal false
 
-[<Fact(Skip = "Remove this Skip property to run this test")>]
+[<Fact>]
 let ``Perfect lower case`` () =
     isPangram "abcdefghijklmnopqrstuvwxyz" |> should equal true
 
-[<Fact(Skip = "Remove this Skip property to run this test")>]
+[<Fact>]
 let ``Only lower case`` () =
     isPangram "the quick brown fox jumps over the lazy dog" |> should equal true
 
-[<Fact(Skip = "Remove this Skip property to run this test")>]
+[<Fact>]
 let ``Missing the letter 'x'`` () =
     isPangram "a quick movement of the enemy will jeopardize five gunboats" |> should equal false
 
