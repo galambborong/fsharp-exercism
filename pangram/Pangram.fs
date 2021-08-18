@@ -1,15 +1,10 @@
-﻿module Pangram
+module Pangram
 
-let alphabet =
-    "abcdefghijklmnopqrstuvwxyz".ToCharArray()
+let alphabet = "abcdefghijklmnopqrstuvwxyz" |> Set
 
 let standardiseInput (string: string) =
     string.Trim().ToLower()
-    |> Seq.sort
-    |> Seq.filter (fun x -> x.ToString() <> " ")
-    |> Array.ofSeq
+    |> Seq.filter System.Char.IsLetter
+    |> Set.ofSeq
 
-let isPangram (input: string) : bool =
-    match input <> "" with
-    | true -> true
-    | false -> standardiseInput input = alphabet
+let isPangram (input: string) = standardiseInput input = alphabet
