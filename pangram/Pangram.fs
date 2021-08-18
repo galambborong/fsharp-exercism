@@ -1,10 +1,10 @@
-module Pangram
+﻿module Pangram
 
 let alphabet = "abcdefghijklmnopqrstuvwxyz" |> Set
 
-let standardiseInput (string: string) =
-    string.Trim().ToLower()
+let standardiseInput (str: string) =
+    str.ToLower()
     |> Seq.filter System.Char.IsLetter
     |> Set.ofSeq
 
-let isPangram (input: string) = standardiseInput input = alphabet
+let isPangram input = standardiseInput input = alphabet
