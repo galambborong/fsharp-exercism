@@ -13,10 +13,10 @@ let countAllowedChars str =
 
 let isIsogram (str: string) =
     let stringLength = str.Length
-    let whiteSpaces = countAllowedChars str
+    let whiteSpacesOrDashes = countAllowedChars str
     let uniqueChars = countUniqueChars str
 
     match uniqueChars with
     | uniqueChars when stringLength = uniqueChars -> true
-    | uniqueChars when uniqueChars + whiteSpaces - 1 = stringLength -> true
+    | uniqueChars when uniqueChars + whiteSpacesOrDashes - 1 = stringLength -> true
     | _ -> false
