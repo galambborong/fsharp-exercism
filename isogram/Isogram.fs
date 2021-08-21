@@ -1,6 +1,10 @@
 ﻿module Isogram
 
-let countUniqueChars (str: string) = str.ToLower() |> Set.ofSeq |> Set.count
+let countUniqueLetters (str: string) =
+    str.ToLower()
+    |> Seq.filter System.Char.IsLetter
+    |> Set.ofSeq
+    |> Set.count
 
 let countAllowedChars str =
     str
@@ -14,9 +18,9 @@ let countAllowedChars str =
 let isIsogram (str: string) =
     let stringLength = str.Length
     let whiteSpacesOrDashes = countAllowedChars str
-    let uniqueChars = countUniqueChars str
+    let uniqueLetters = countUniqueLetters str
 
-    match uniqueChars with
-    | uniqueChars when stringLength = uniqueChars -> true
-    | uniqueChars when uniqueChars + whiteSpacesOrDashes - 1 = stringLength -> true
+    match uniqueLetters with
+    | uniqueLetters when stringLength = uniqueLetters -> true
+    | uniqueLetters when uniqueLetters + whiteSpacesOrDashes = stringLength -> true
     | _ -> false
