@@ -1,8 +1,14 @@
 ﻿module PhoneNumber
 
-let clean (input:string) =
-    input
-    |> Seq.filter System.Char.IsNumber
-    
-    
-    
+let strToNum numbers = int numbers
+
+
+
+let clean (input: string) =
+    let numbers = input |> Seq.filter System.Char.IsNumber
+    let bigNumAsString = numbers.ToString()
+
+
+    match bigNumAsString.Length with
+    | 10 -> strToNum bigNumAsString
+    | _ -> strToNum bigNumAsString
