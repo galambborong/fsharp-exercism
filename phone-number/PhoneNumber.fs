@@ -4,8 +4,5 @@ open System
 
 let clean input =
     input
-    |> Seq.filter Char.IsNumber
-    |> Seq.map string
-    |> String.concat ""
-    |> uint64
-    |> Ok
+    |> String.filter Char.IsNumber
+    |> UInt64.TryParse
