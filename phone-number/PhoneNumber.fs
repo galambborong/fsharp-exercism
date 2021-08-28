@@ -1,4 +1,4 @@
-﻿module PhoneNumber
+module PhoneNumber
 
 open System
 
@@ -8,3 +8,4 @@ let clean input =
     |> Seq.map string
     |> String.concat ""
     |> uint64
+    |> Ok
