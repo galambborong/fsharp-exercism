@@ -1,0 +1,17 @@
+{
+  "blurb": "Learn about the basics of F# by following a lasagna recipe",
+  "authors": [
+    "ErikSchierboom"
+  ],
+  "files": {
+    "solution": [
+      "LuciansLusciousLasagna.fs"
+    ],
+    "test": [
+      "LuciansLusciousLasagnaTests.fs"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.fs"
+    ]
+  }
+}
