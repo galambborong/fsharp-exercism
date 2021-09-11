@@ -18,10 +18,7 @@ let canSignalPrisoner archerIsAwake prisonerIsAwake =
 
 let canFreePrisoner knightIsAwake archerIsAwake prisonerIsAwake petDogIsPresent =
     match knightIsAwake, archerIsAwake, prisonerIsAwake, petDogIsPresent with
-    | true, true, true, _ -> false
-    | false, true, true, _ -> false
-    | true, false, true, false -> false
-    | _, _, true, _ -> true
-    | _, _, _, false -> false
-    | _, false, _, true -> true
-    | _, true, _, true -> false
+    | false, false, _, true -> true
+    | false, false, true, false -> true
+    | true, false, _, true -> true
+    | _ -> false
