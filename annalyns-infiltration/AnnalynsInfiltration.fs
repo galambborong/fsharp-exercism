@@ -10,7 +10,6 @@ let canSpy knightIsAwake archerIsAwake prisonerIsAwake =
     | false, false, false -> false
     | _ -> true
     
-
 let canSignalPrisoner archerIsAwake prisonerIsAwake =
     match archerIsAwake, prisonerIsAwake with
     | false, true -> true
@@ -18,7 +17,6 @@ let canSignalPrisoner archerIsAwake prisonerIsAwake =
 
 let canFreePrisoner knightIsAwake archerIsAwake prisonerIsAwake petDogIsPresent =
     match knightIsAwake, archerIsAwake, prisonerIsAwake, petDogIsPresent with
-    | false, false, _, true -> true
+    | _, false, _, true -> true
     | false, false, true, false -> true
-    | true, false, _, true -> true
     | _ -> false
