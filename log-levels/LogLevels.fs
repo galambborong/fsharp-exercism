@@ -1,9 +1,12 @@
 module LogLevels
 
 let message (logLine: string) =
-   let idx = logLine.IndexOf(":")
-   logLine.Substring(idx + 2).Trim()
+    logLine.Substring(logLine.IndexOf(":") + 2).Trim()
 
-let logLevel(logLine: string): string = failwith "Please implement the 'logLevel' function"
+let logLevel (logLine: string) =
+    logLine
+        .Substring(1, logLine.IndexOf(":") - 2)
+        .ToLower()
 
-let reformat(logLine: string): string = failwith "Please implement the 'reformat' function"
+let reformat logLine =
+    $"{message logLine} ({logLevel logLine})"
