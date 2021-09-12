@@ -1,6 +1,8 @@
 module LogLevels
 
-let message (logLine: string): string = failwith "Please implement the 'message' function"
+let message (logLine: string) =
+   let idx = logLine.IndexOf(":")
+   logLine.Substring(idx + 2).Trim()
 
 let logLevel(logLine: string): string = failwith "Please implement the 'logLevel' function"
 
