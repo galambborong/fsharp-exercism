@@ -13,13 +13,22 @@ let mapPlant (x:char) =
       | 'G' -> Plant.Grass
       | 'V' -> Plant.Violets
       | _ -> failwith "todo"
-      
-      
-// plants "RC\nGG" "Alice"
+
+
+// plants' "RC\nGG" "Alice"
 // plants "VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV" "Alice"
-      
-let plants (diagram: string) (student: string) =
-    diagram.Split('\n')
+
+let transformInput (input: string) =
+    input.Split('\n')
     |> Array.toSeq
     |> Seq.map List.ofSeq
-//    |> Seq.map (fun x -> Seq.map mapPlant)
+
+//  transformInput "VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV"
+
+let plants (diagram: string) (student: string) =
+    diagram |> transformInput |> Seq.head |> List.map mapPlant
+
+// plants "RC\nGG" "Alice"
+
+let plants' (diagram: string) (student: string) =
+    diagram |> List.ofSeq
