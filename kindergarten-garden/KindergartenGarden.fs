@@ -12,6 +12,13 @@ let mapPlant x =
       | "C" -> Plant.Clover
       | "G" -> Plant.Grass
       | "V" -> Plant.Violets
+      | _ -> failwith "todo"
       
-let plants (diagram: string) student =
+      
+// plants "RC\nGG" "Alice"
+// plants "VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV" "Alice"
+      
+let plants (diagram: string) (student: string) =
     diagram.Split('\n')
+    |> Array.toSeq
+    |> Seq.map (fun x -> List.ofSeq x)
