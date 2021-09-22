@@ -6,12 +6,12 @@ type Plant =
     | Radishes
     | Violets
 
-let mapPlant x =
+let mapPlant (x:char) =
       match x with
-      | "R" -> Plant.Radishes
-      | "C" -> Plant.Clover
-      | "G" -> Plant.Grass
-      | "V" -> Plant.Violets
+      | 'R' -> Plant.Radishes
+      | 'C' -> Plant.Clover
+      | 'G' -> Plant.Grass
+      | 'V' -> Plant.Violets
       | _ -> failwith "todo"
       
       
@@ -22,3 +22,4 @@ let plants (diagram: string) (student: string) =
     diagram.Split('\n')
     |> Array.toSeq
     |> Seq.map (fun x -> List.ofSeq x)
+//    |> Seq.map (fun x -> Seq.map mapPlant)
