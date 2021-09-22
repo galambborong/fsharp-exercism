@@ -21,5 +21,5 @@ let mapPlant (x:char) =
 let plants (diagram: string) (student: string) =
     diagram.Split('\n')
     |> Array.toSeq
-    |> Seq.map (fun x -> List.ofSeq x)
+    |> Seq.map List.ofSeq
 //    |> Seq.map (fun x -> Seq.map mapPlant)
