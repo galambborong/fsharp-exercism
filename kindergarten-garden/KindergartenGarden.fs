@@ -6,6 +6,7 @@ type Plant =
     | Radishes
     | Violets
 
+
 let mapPlant (x:char) =
       match x with
       | 'R' -> Plant.Radishes
@@ -26,7 +27,21 @@ let transformInput (input: string) =
 //  transformInput "VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV"
 
 let plants (diagram: string) (student: string) =
-    diagram |> transformInput |> Seq.head |> List.map mapPlant
+    let thing = diagram |> transformInput
+
+    let tail =
+        thing
+        |> Seq.last
+        |> List.map mapPlant
+
+    let head =
+        thing
+        |> Seq.head
+        |> List.map mapPlant
+
+    tail
+    |> List.append head
+
 
 // plants "RC\nGG" "Alice"
 
