@@ -6,8 +6,7 @@ type Plant =
     | Radishes
     | Violets
 
-
-let mapPlant (x:char) =
+let mapPlant x =
       match x with
       | 'R' -> Plant.Radishes
       | 'C' -> Plant.Clover
@@ -15,35 +14,40 @@ let mapPlant (x:char) =
       | 'V' -> Plant.Violets
       | _ -> failwith "todo"
 
+let mapOwner name =
+    match name with
+    | "Alice" -> 0
+    | "Bob" -> 2
+    | "Charlie" -> 4
+    | "David" -> 6
+    | "Eve" -> 8
+    | "Fred" -> 10
+    | "Ginny" -> 12
+    | "Harriet" -> 14
+    | "Ileana" -> 16
+    | "Joseph" -> 18
+    | "Kincaid" -> 20
+    | "Larry" -> 22
+    | _ -> failwith "todo"
 
-// plants' "RC\nGG" "Alice"
-// plants "VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV" "Alice"
-
-let transformInput (input: string) =
+let transformStringToRows (input: string) =
     input.Split('\n')
     |> Array.toSeq
     |> Seq.map List.ofSeq
+    
+let plants diagram student =
+    let rows = diagram |> transformStringToRows
+    let owner = mapOwner student
 
-//  transformInput "VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV"
-
-let plants (diagram: string) (student: string) =
-    let thing = diagram |> transformInput
-
-    let tail =
-        thing
+    let secondRow =
+        rows
         |> Seq.last
         |> List.map mapPlant
 
-    let head =
-        thing
+    let firstRow =
+        rows
         |> Seq.head
         |> List.map mapPlant
 
-    tail
-    |> List.append head
-
-
-// plants "RC\nGG" "Alice"
-
-let plants' (diagram: string) (student: string) =
-    diagram |> List.ofSeq
+    secondRow.[owner..owner + 1]
+    |> List.append firstRow.[owner..owner + 1]
