@@ -32,8 +32,8 @@ let getOwnerSeatPosition name =
 
 let transformStringIntoRows (input: string) =
     input.Split('\n')
-    |> Array.toSeq
-    |> Seq.map List.ofSeq
+    |> Array.toList
+    |> List.map List.ofSeq
     
 let transformToPlants row =
     row |> List.map getPlantType
@@ -42,7 +42,6 @@ let plants diagram student =
     let ownerPosition = getOwnerSeatPosition student
     diagram
     |> transformStringIntoRows
-    |> Seq.map transformToPlants
-    |> Seq.map (fun row -> row.[ownerPosition..ownerPosition + 1])
-    |> Seq.toList
+    |> List.map (fun row -> row.[ownerPosition..ownerPosition + 1])
     |> List.concat
+    |> transformToPlants
