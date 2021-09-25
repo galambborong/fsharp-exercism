@@ -6,7 +6,7 @@ type Plant =
     | Radishes
     | Violets
 
-let mapPlant x =
+let getPlantType x =
       match x with
       | 'R' -> Plant.Radishes
       | 'C' -> Plant.Clover
@@ -14,7 +14,7 @@ let mapPlant x =
       | 'V' -> Plant.Violets
       | _ -> failwith "todo"
 
-let mapOwner name =
+let getOwnerSeatPosition name =
     match name with
     | "Alice" -> 0
     | "Bob" -> 2
@@ -30,24 +30,19 @@ let mapOwner name =
     | "Larry" -> 22
     | _ -> failwith "todo"
 
-let transformStringToRows (input: string) =
+let transformStringIntoRows (input: string) =
     input.Split('\n')
     |> Array.toSeq
     |> Seq.map List.ofSeq
     
+let transformToPlants row =
+    row |> List.map getPlantType
+    
 let plants diagram student =
-    let rows = diagram |> transformStringToRows
-    let owner = mapOwner student
-
-    let secondRow =
-        rows
-        |> Seq.last
-        |> List.map mapPlant
-
-    let firstRow =
-        rows
-        |> Seq.head
-        |> List.map mapPlant
-
-    secondRow.[owner..owner + 1]
-    |> List.append firstRow.[owner..owner + 1]
+    let ownerPosition = getOwnerSeatPosition student
+    diagram
+    |> transformStringIntoRows
+    |> Seq.map transformToPlants
+    |> Seq.map (fun row -> row.[ownerPosition..ownerPosition + 1])
+    |> Seq.toList
+    |> List.concat
