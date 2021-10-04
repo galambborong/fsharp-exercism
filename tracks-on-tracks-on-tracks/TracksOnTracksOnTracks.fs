@@ -8,12 +8,10 @@ let addLanguage language languagesList = language :: languagesList
 
 let countLanguages (list: string list) = list.Length
 
-let reverseList (languages: string list) : string list = languages |> List.rev
+let reverseList languages = languages |> List.rev
 
-let excitingList (languages: string list) : bool =
-    let languageCount = countLanguages languages
-
-    match languages, languageCount with
+let excitingList languages =
+    match languages, countLanguages languages with
     | _, c when c = 0 -> false
     | l, c when c = 1 || c > 3 ->
         match l.Head with
