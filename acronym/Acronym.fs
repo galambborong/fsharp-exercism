@@ -1,8 +1,8 @@
 ﻿module Acronym
 
 let isLetter = String.filter System.Char.IsLetter
-let getFirstChar (x: string) = x.Substring(0, 1).ToUpper()
-let transform = isLetter >> getFirstChar
+let getFirstCharAndCapitalise (x: string) = x.Substring(0, 1).ToUpper()
+let transform = isLetter >> getFirstCharAndCapitalise
 
 let abbreviate (phrase: string) =
     phrase.Split(" ")
