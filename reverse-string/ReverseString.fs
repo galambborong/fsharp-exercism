@@ -1,7 +1,9 @@
 ﻿module ReverseString
 
-let reverse (input: string): string =
-    let rec loop acc = function
-        | [] -> acc
-        | x :: xs -> loop (x :: xs) tail
-    loop [] input.
+let reverse (input: string) =
+    input
+    |> Seq.indexed
+    |> Seq.iter (fun x -> printfn $"{x}")
+    
+    
+// reverse "robot"
