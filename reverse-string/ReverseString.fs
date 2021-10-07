@@ -2,8 +2,6 @@
 
 let reverse (input: string) =
     input
-    |> Seq.indexed
-    |> Seq.iter (fun x -> printfn $"{x}")
-    
-    
-// reverse "robot"
+    |> Seq.rev
+    |> Seq.map string//(fun x -> x.ToString())
+    |> String.concat ""
