@@ -3,5 +3,5 @@
 let reverse (input: string) =
     input
     |> Seq.rev
-    |> Seq.map string//(fun x -> x.ToString())
+    |> Seq.map string
     |> String.concat ""
