@@ -1,6 +1,6 @@
 ﻿module ReverseString
 
-let reverse (input: string) =
+let reverse input =
     input
     |> Seq.rev
     |> Seq.map string
