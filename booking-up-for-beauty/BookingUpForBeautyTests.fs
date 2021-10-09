@@ -13,14 +13,14 @@ let ``Schedule date using only numbers`` () =
     schedule "7/25/2019 13:45:00"
     |> should equal (DateTime(2019, 7, 25, 13, 45, 0))
 
-[<Fact(Skip = "Remove this Skip property to run this test")>]
+[<Fact>]
 [<UseCulture("en-US")>]
 [<Task(1)>]
 let ``Schedule date with textual month`` () =
     schedule "June 3, 2019 11:30:00"
     |> should equal (DateTime(2019, 6, 3, 11, 30, 0))
 
-[<Fact(Skip = "Remove this Skip property to run this test")>]
+[<Fact>]
 [<UseCulture("en-US")>]
 [<Task(1)>]
 let ``Schedule date with textual month and weekday`` () =
@@ -167,7 +167,7 @@ let ``Description on Thursday afternoon`` () =
     description (DateTime(2019, 7, 25, 13, 45, 0))
     |> should equal "You have an appointment on 7/25/2019 1:45:00 PM."
 
-[<Fact(Skip = "Remove this Skip property to run this test")>]
+[<Fact>]
 [<UseCulture("en-US")>]
 [<Task(4)>]
 let ``Description on Wednesday morning`` () =
