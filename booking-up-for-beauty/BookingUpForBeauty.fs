@@ -13,7 +13,7 @@ let isAfternoonAppointment (appointmentDate: DateTime) =
     && appointmentDate.Hour < 18
 
 let description (appointmentDate: DateTime) : string =
-    failwith "Please implement the 'description' function"
+    $"You have an appointment on {appointmentDate}."
 
 let anniversaryDate () : DateTime =
     failwith "Please implement the 'anniversaryDate' function"
