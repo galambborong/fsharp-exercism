@@ -9,7 +9,7 @@ let schedule appointmentDateDescription =
 let hasPassed appointmentDate = appointmentDate < DateTime.Now
 
 let isAfternoonAppointment (appointmentDate: DateTime) : bool =
-    failwith "Please implement the 'isAfternoonAppointment' function"
+    appointmentDate.Hour >= 12 && appointmentDate.Hour < 18
 
 let description (appointmentDate: DateTime) : string =
     failwith "Please implement the 'description' function"

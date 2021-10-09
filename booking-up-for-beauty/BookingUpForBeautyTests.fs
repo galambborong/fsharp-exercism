@@ -104,77 +104,77 @@ let ``Has passed with appointment in years`` () =
     hasPassed (DateTime.Now.AddYears(2).AddMonths(3).AddDays(6.0))
     |> should equal false
 
-[<Fact(Skip = "Remove this Skip property to run this test")>]
+[<Fact>]
 [<UseCulture("en-US")>]
 [<Task(3)>]
 let ``Is afternoon appointment for early morning appointment`` () =
     isAfternoonAppointment (DateTime(2019, 6, 17, 8, 15, 0))
     |> should equal false
 
-[<Fact(Skip = "Remove this Skip property to run this test")>]
+[<Fact>]
 [<UseCulture("en-US")>]
 [<Task(3)>]
 let ``Is afternoon appointment for late morning appointment`` () =
     isAfternoonAppointment (DateTime(2019, 2, 23, 11, 59, 59))
     |> should equal false
 
-[<Fact(Skip = "Remove this Skip property to run this test")>]
+[<Fact>]
 [<UseCulture("en-US")>]
 [<Task(3)>]
 let ``Is afternoon appointment for noon appointment`` () =
     isAfternoonAppointment (DateTime(2019, 8, 9, 12, 0, 0))
     |> should equal true
 
-[<Fact(Skip = "Remove this Skip property to run this test")>]
+[<Fact>]
 [<UseCulture("en-US")>]
 [<Task(3)>]
 let ``Is afternoon appointment for early afternoon appointment`` () =
     isAfternoonAppointment (DateTime(2019, 8, 9, 12, 0, 1))
     |> should equal true
 
-[<Fact(Skip = "Remove this Skip property to run this test")>]
+[<Fact>]
 [<UseCulture("en-US")>]
 [<Task(3)>]
 let ``Is afternoon appointment for late afternoon appointment`` () =
     isAfternoonAppointment (DateTime(2019, 9, 1, 17, 59, 59))
     |> should equal true
 
-[<Fact(Skip = "Remove this Skip property to run this test")>]
+[<Fact>]
 [<UseCulture("en-US")>]
 [<Task(3)>]
 let ``Is afternoon appointment for early evening appointment`` () =
     isAfternoonAppointment (DateTime(2019, 9, 1, 18, 0, 0))
     |> should equal false
 
-[<Fact(Skip = "Remove this Skip property to run this test")>]
+[<Fact>]
 [<UseCulture("en-US")>]
 [<Task(3)>]
 let ``Is afternoon appointment for late evening appointment`` () =
     isAfternoonAppointment (DateTime(2019, 9, 1, 23, 59, 59))
     |> should equal false
 
-[<Fact(Skip = "Remove this Skip property to run this test")>]
+[<Fact>]
 [<UseCulture("en-US")>]
 [<Task(4)>]
 let ``Description on Friday afternoon`` () =
     description (DateTime(2019, 3, 29, 15, 0, 0))
     |> should equal "You have an appointment on 3/29/2019 3:00:00 PM."
 
-[<Fact(Skip = "Remove this Skip property to run this test")>]
+[<Fact>]
 [<UseCulture("en-US")>]
 [<Task(4)>]
 let ``Description on Thursday afternoon`` () =
     description (DateTime(2019, 7, 25, 13, 45, 0))
     |> should equal "You have an appointment on 7/25/2019 1:45:00 PM."
 
-[<Fact(Skip = "Uncomment later")>]
+[<Fact>]
 [<UseCulture("en-US")>]
 [<Task(4)>]
 let ``Description on Wednesday morning`` () =
     description (DateTime(2020, 9, 9, 9, 9, 9))
     |> should equal "You have an appointment on 9/9/2020 9:09:09 AM."
 
-[<Fact(Skip = "Remove this Skip property to run this test")>]
+[<Fact>]
 [<UseCulture("en-US")>]
 [<Task(5)>]
 let ``Anniversary date this year`` () =
