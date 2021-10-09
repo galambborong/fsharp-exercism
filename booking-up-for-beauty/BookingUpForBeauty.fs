@@ -15,5 +15,4 @@ let isAfternoonAppointment (appointmentDate: DateTime) =
 let description (appointmentDate: DateTime) : string =
     $"You have an appointment on {appointmentDate}."
 
-let anniversaryDate () : DateTime =
-    failwith "Please implement the 'anniversaryDate' function"
+let anniversaryDate () = DateTime(DateTime.Now.Year, 9, 15)
