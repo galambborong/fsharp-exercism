@@ -2,8 +2,12 @@
 
 let response (input: string): string =
     let trimmedMessage =  input.Trim()
+    let hasLetters = trimmedMessage
+                        |> seq
+                        |> Seq.filter System.Char.IsLetter
+                        |> string
     let isQuestion = trimmedMessage.EndsWith('?')
-    let isShouting = trimmedMessage = trimmedMessage.ToUpper() && trimmedMessage.Length <> 0
+    let isShouting = trimmedMessage = trimmedMessage.ToUpper() && trimmedMessage.Length <> 0 && hasLetters.Length > 0
     let isEmpty = trimmedMessage.Equals("")
     
     match isEmpty, isQuestion, isShouting with
