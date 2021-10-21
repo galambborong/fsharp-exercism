@@ -8,7 +8,6 @@ let response (input: string) : string =
         |> String.filter System.Char.IsLetter
         |> String.length > 0
 
-
     let isQuestion = trimmedMessage.EndsWith('?')
 
     let isShouting =
