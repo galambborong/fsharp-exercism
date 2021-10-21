@@ -42,6 +42,5 @@ let plants diagram student =
     let ownerPosition = getOwnerSeatPosition student
     diagram
     |> transformStringIntoRows
-    |> List.map (fun row -> row.[ownerPosition..ownerPosition + 1])
-    |> List.concat
+    |> List.collect (fun row -> row.[ownerPosition..ownerPosition + 1])
     |> transformToPlants
