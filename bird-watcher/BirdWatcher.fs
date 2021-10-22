@@ -1,22 +1,20 @@
 module BirdWatcher
 
-let lastWeek: int[] = [|0; 2; 5; 3; 7; 8; 4|]
+let lastWeek = [| 0; 2; 5; 3; 7; 8; 4 |]
 
-let yesterday(counts: int[]): int = counts.[counts.Length - 2]
+let yesterday (counts: int []) = counts.[5]
 
-let total(counts: int[]): int =
-    counts |> Array.sum
+let total (counts: int []) = counts |> Array.sum
 
-let dayWithoutBirds(counts: int[]): bool =
-    counts |> Array.contains 0
+let dayWithoutBirds (counts: int []) = counts |> Array.contains 0
 
-let incrementTodaysCount(counts: int[]): int[] =
-    counts.[counts.Length - 1] <- (counts.[counts.Length - 1] + 1)
+let incrementTodaysCount (counts: int []) =
+    counts.[6] <- (counts.[6] + 1)
     counts
 
-let oddWeek(counts: int[]): bool =
+let oddWeek (counts: int []) =
     match counts with
-    | [|5; _; 5; _; 5; _; 5|] -> true
-    | [|_; 0; _; 0; _; 0; _|] -> true
-    | [|_; 10; _; 10; _; 10; _|] -> true
+    | [| 5; _; 5; _; 5; _; 5 |]
+    | [| _; 0; _; 0; _; 0; _ |]
+    | [| _; 10; _; 10; _; 10; _ |] -> true
     | _ -> false
