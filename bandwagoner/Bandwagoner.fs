@@ -1,25 +1,45 @@
 module Bandwagoner
 
-// TODO: please define the 'Coach' record type
+type Coach = { Name: string; FormerPlayer: bool }
 
-// TODO: please define the 'Stats' record type
+type Stats = { Wins: int; Losses: int }
 
-// TODO: please define the 'Team' record type
+type Team =
+    { Name: string
+      Coach: Coach
+      Stats: Stats }
 
-let createCoach (name: string) (formerPlayer: bool): Coach =
-    failwith "Please implement the 'createCoach' function"
+let createCoach name formerPlayer =
+    { Name = name
+      FormerPlayer = formerPlayer }
 
-let createStats(wins: int) (losses: int): Stats =
-   failwith "Please implement the 'createStats' function"
+let createStats wins losses = { Wins = wins; Losses = losses }
 
-let createTeam(name: string) (coach: Coach)(stats: Stats): Team =
-  failwith "Please implement the 'createTeam' function"
+let createTeam name coach stats =
+    { Name = name
+      Coach = coach
+      Stats = stats }
 
-let replaceCoach(team: Team) (coach: Coach): Team =
-   failwith "Please implement the 'replaceCoach' function"
+let replaceCoach team coach =
+    let newTeam = { team with Coach = coach }
+    newTeam
 
-let isSameTeam(homeTeam: Team) (awayTeam: Team): bool =
-   failwith "Please implement the 'isSameTeam' function"
+let isSameTeam homeTeam awayTeam = homeTeam = awayTeam
 
-let rootForTeam(team: Team): bool =
-   failwith "Please implement the 'rootForTeam' function"
+let rootForTeam team =
+    let { Coach = coachName
+          Stats = stats
+          Name = teamName } =
+        team
+
+    let { Wins = wins; Losses = losses } = stats
+
+    match coachName, teamName with
+    | { Name = "Gregg Popovich" }, _
+    | { FormerPlayer = true }, _
+    | _, "Chicago Bulls" -> true
+    | _ ->
+        match wins, losses with
+        | wins, _ when wins >= 60 -> true
+        | wins, losses when losses > wins -> true
+        | _ -> false
