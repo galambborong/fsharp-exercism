@@ -25,14 +25,14 @@ let replaceCoach team coach = { team with Coach = coach }
 let isSameTeam homeTeam awayTeam = homeTeam = awayTeam
 
 let rootForTeam team =
-    let { Coach = coachName
+    let { Coach = coachDetails
           Stats = stats
           Name = teamName } =
         team
 
     let { Wins = wins; Losses = losses } = stats
 
-    match coachName, teamName with
+    match coachDetails, teamName with
     | { Name = "Gregg Popovich" }, _
     | { FormerPlayer = true }, _
     | _, "Chicago Bulls" -> true
