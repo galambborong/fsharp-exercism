@@ -20,9 +20,7 @@ let createTeam name coach stats =
       Coach = coach
       Stats = stats }
 
-let replaceCoach team coach =
-    let newTeam = { team with Coach = coach }
-    newTeam
+let replaceCoach team coach = { team with Coach = coach }
 
 let isSameTeam homeTeam awayTeam = homeTeam = awayTeam
 
