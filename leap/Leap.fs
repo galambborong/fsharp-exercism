@@ -1,8 +1,8 @@
 ﻿module Leap
 
 let leapYear year =
-    match year with
-    | year when year % 4 = 0 && year % 100 <> 0 -> true
-    | year when year % 400 = 0 -> true
+    match year % 4, year % 100, year % 400 with
+    | 0, 0, 0 -> true
+    | 0, 0, _ -> false
+    | 0, _, _ -> true
     | _ -> false
-
