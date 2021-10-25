@@ -1,6 +1,6 @@
 ﻿module Raindrops
 
-let convert (number: int): string =
+let convert number =
     match number % 3, number % 5, number % 7 with
     | 0, 0, 0 -> "PlingPlangPlong"
     | 0, 0, _ -> "PlingPlang"
