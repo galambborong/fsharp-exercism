@@ -6,8 +6,7 @@ let transform = isLetter >> getFirstCharAndCapitalise
 
 let abbreviate (phrase: string) =
     phrase.Split(" ")
-    |> Array.map (fun (x: string) -> x.Split("-"))
-    |> Seq.concat
-    |> Seq.filter (fun x -> x.Length <> 0)
-    |> Seq.map transform
+    |> Array.collect (fun (x: string) -> x.Split("-"))
+    |> Array.filter (fun x -> x.Length <> 0)
+    |> Array.map transform
     |> String.concat ""
