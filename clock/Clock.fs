@@ -1,9 +1,28 @@
 module Clock
 
-let create hours minutes = failwith "You need to implement this function."
+open System
 
-let add minutes clock = failwith "You need to implement this function."
+let handleOverClocking hours =
+    match hours > 24 with
+    | true -> hours % 24
+    | false -> hours
 
-let subtract minutes clock = failwith "You need to implement this function."
+let create (hours: int) (minutes: int) =
+    TimeSpan(handleOverClocking hours, minutes, 0).TotalSeconds
 
-let display clock = failwith "You need to implement this function."
+let add minutes (clock: float) =
+    clock + TimeSpan(0, minutes, 0).TotalSeconds
+
+let subtract minutes clock =
+    clock - TimeSpan(0, minutes, 0).TotalSeconds
+
+let realDisplay timeSpan = timeSpan.ToString().Substring(0, 5)
+
+let anotherDisplay timeSpan = timeSpan.ToString().Substring(2, 5)
+
+let display (clock: float) =
+    let time = TimeSpan.FromSeconds(clock)
+
+    match time.Days with
+    | 0 -> realDisplay time
+    | _ -> anotherDisplay time
