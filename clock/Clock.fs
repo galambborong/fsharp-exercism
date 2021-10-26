@@ -29,9 +29,9 @@ let subtract minutes clock =
         TimeSpan(1, 0, 0, 0, 0).TotalMinutes - (TimeSpan((fst tmp), (snd tmp), 0).TotalMinutes - clock)
     | _ -> failwith "todo"
 
-let realDisplay timeSpan = timeSpan.ToString()//.Substring(0, 5)
+let realDisplay timeSpan = timeSpan.ToString().Substring(0, 5)
 
-let anotherDisplay timeSpan = timeSpan.ToString()//.Substring(2, 5)
+let anotherDisplay timeSpan = timeSpan.ToString().Substring(2, 5)
 
 let display (clock: float) =
     let time = TimeSpan.FromMinutes(clock)
