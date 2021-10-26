@@ -6,7 +6,7 @@ let totalMinutesPerDay = TimeSpan(1, 0, 0, 0).TotalMinutes
 
 let subTotalOf minutes = TimeSpan(0, minutes, 0).TotalMinutes
 
-let displayNormalTime timeSpan = timeSpan.ToString().Substring(0, 5)
+let displayTime timeSpan = timeSpan.ToString().Substring(0, 5)
 
 let displayTimeOver24Hrs timeSpan = timeSpan.ToString().Substring(2, 5)
 
@@ -54,5 +54,5 @@ let display clock =
         |> TimeSpan.FromMinutes
 
     match time.Days with
-    | 0 -> displayNormalTime time
+    | 0 -> displayTime time
     | _ -> displayTimeOver24Hrs time
