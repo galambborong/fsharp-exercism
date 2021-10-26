@@ -4,7 +4,7 @@ open System
 
 let totalMinutesPerDay = TimeSpan(1, 0, 0, 0).TotalMinutes
 
-let numberOfMinutes minutes = TimeSpan(0, minutes, 0).TotalMinutes
+let subTotalOf minutes = TimeSpan(0, minutes, 0).TotalMinutes
 
 let displayNormalTime timeSpan = timeSpan.ToString().Substring(0, 5)
 
@@ -37,13 +37,11 @@ let create hours minutes =
     |> handleNegativeMinuteCount
 
 let add minutesToAdd currentTotalMinutes =
-    currentTotalMinutes
-    |> (+) (numberOfMinutes minutesToAdd)
+    currentTotalMinutes + subTotalOf minutesToAdd
 
 let subtract minutesToSubtract currentTotalMinutes =
     let temporaryMinuteCount =
-        currentTotalMinutes
-        |> (-) (numberOfMinutes minutesToSubtract)
+        currentTotalMinutes - subTotalOf minutesToSubtract
 
     match temporaryMinuteCount < 0.0 with
     | true -> handleNegativeMinuteCount temporaryMinuteCount
