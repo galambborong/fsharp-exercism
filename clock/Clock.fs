@@ -37,11 +37,13 @@ let create hours minutes =
     |> handleNegativeMinuteCount
 
 let add minutesToAdd currentTotalMinutes =
-    currentTotalMinutes + numberOfMinutes minutesToAdd
+    currentTotalMinutes
+    |> (+) (numberOfMinutes minutesToAdd)
 
 let subtract minutesToSubtract currentTotalMinutes =
     let temporaryMinuteCount =
-        currentTotalMinutes - numberOfMinutes minutesToSubtract
+        currentTotalMinutes
+        |> (-) (numberOfMinutes minutesToSubtract)
 
     match temporaryMinuteCount < 0.0 with
     | true -> handleNegativeMinuteCount temporaryMinuteCount
