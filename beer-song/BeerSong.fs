@@ -17,24 +17,22 @@ let noBottleVerse =
     [ "No more bottles of beer on the wall, no more bottles of beer."
       "Go to the store and buy some more, 99 bottles of beer on the wall." ]
 
-let recite (startBottles: int) (takeDown: int) =
+let recite startBottles takeDown =
     let rec buildVerses verses currentNumber versesToGo =
-        let append = 
+        let updatedVerse =
             match currentNumber with
             | x when x > 2 -> standardVerse x
             | 2 -> twoBottleVerse
             | 1 -> oneBottleVerse
             | 0 -> noBottleVerse
             | _ -> failwith "This case should never occur"
+            |> List.append [ "" ]
             |> List.append verses
-        
-        if versesToGo >= 0 && currentNumber >= 0 then 
-            buildVerses append (currentNumber - 1) (versesToGo - 1)
-        else verses
-        
+
+        match currentNumber, versesToGo with
+        | currentNumber, versesToGo when currentNumber > 0 && versesToGo > 0 ->
+            buildVerses updatedVerse (currentNumber - 1) (versesToGo - 1)
+        | 0, 1 -> buildVerses updatedVerse 0 0
+        | _ -> verses.Tail
+
     buildVerses List.empty startBottles takeDown
-    
-    // recite 5 2
-    // recite 99 10
-    // recite 2 2
-    // recite 2 3
