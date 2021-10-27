@@ -59,6 +59,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Clock", "clock\Clock.fsproj
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "CollatzConjecture", "collatz-conjecture\CollatzConjecture.fsproj", "{5DBEFFDF-DEBE-4C67-B6F9-84A7BD7B58B4}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "BeerSong", "beer-song\BeerSong.fsproj", "{B55A3378-BD55-4344-92EF-1AC7BDB846D5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -408,5 +410,17 @@ Global
 		{5DBEFFDF-DEBE-4C67-B6F9-84A7BD7B58B4}.Release|x64.Build.0 = Release|Any CPU
 		{5DBEFFDF-DEBE-4C67-B6F9-84A7BD7B58B4}.Release|x86.ActiveCfg = Release|Any CPU
 		{5DBEFFDF-DEBE-4C67-B6F9-84A7BD7B58B4}.Release|x86.Build.0 = Release|Any CPU
+		{B55A3378-BD55-4344-92EF-1AC7BDB846D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B55A3378-BD55-4344-92EF-1AC7BDB846D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B55A3378-BD55-4344-92EF-1AC7BDB846D5}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B55A3378-BD55-4344-92EF-1AC7BDB846D5}.Debug|x64.Build.0 = Debug|Any CPU
+		{B55A3378-BD55-4344-92EF-1AC7BDB846D5}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B55A3378-BD55-4344-92EF-1AC7BDB846D5}.Debug|x86.Build.0 = Debug|Any CPU
+		{B55A3378-BD55-4344-92EF-1AC7BDB846D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B55A3378-BD55-4344-92EF-1AC7BDB846D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B55A3378-BD55-4344-92EF-1AC7BDB846D5}.Release|x64.ActiveCfg = Release|Any CPU
+		{B55A3378-BD55-4344-92EF-1AC7BDB846D5}.Release|x64.Build.0 = Release|Any CPU
+		{B55A3378-BD55-4344-92EF-1AC7BDB846D5}.Release|x86.ActiveCfg = Release|Any CPU
+		{B55A3378-BD55-4344-92EF-1AC7BDB846D5}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
