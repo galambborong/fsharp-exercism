@@ -18,9 +18,9 @@ let noBottleVerse =
       "Go to the store and buy some more, 99 bottles of beer on the wall." ]
 
 let recite startBottles takeDown =
-    let rec buildVerses verses currentNumber versesToGo =
+    let rec buildVerses verses currentBottle versesToGo =
         let updatedVerse =
-            match currentNumber with
+            match currentBottle with
             | x when x > 2 -> standardVerse x
             | 2 -> twoBottleVerse
             | 1 -> oneBottleVerse
@@ -29,9 +29,9 @@ let recite startBottles takeDown =
             |> List.append [ "" ]
             |> List.append verses
 
-        match currentNumber, versesToGo with
-        | currentNumber, versesToGo when currentNumber > 0 && versesToGo > 0 ->
-            buildVerses updatedVerse (currentNumber - 1) (versesToGo - 1)
+        match currentBottle, versesToGo with
+        | currentBottle, versesToGo when currentBottle > 0 && versesToGo > 0 ->
+            buildVerses updatedVerse (currentBottle - 1) (versesToGo - 1)
         | 0, 1 -> buildVerses updatedVerse 0 0
         | _ -> verses.Tail
 
