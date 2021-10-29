@@ -9,13 +9,18 @@ type Robot = { direction: Direction; position: Position }
 let create direction position =
         { direction = direction; position = position }
 
-let move instructions (robot: Robot) =
-
-    let nextDirection =
-        FSharpType.GetUnionCases typeof<Direction>
-        |> Array.toList
-        |> List.indexed
-
-    match instructions with
-    | "R" -> { direction = Direction. ; position = robot.position }
+let nextDirection currentDirection instruction =
+    match currentDirection, instruction with
+    | Direction.North, "R" -> Direction.East
+    | Direction.North, "L" -> Direction.West
+    | Direction.North, "A" -> Direction.North
+    | Direction.East, "R" -> Direction.South
+    | Direction.East, "L" -> Direction.North
+    | Direction.East, "A" -> Direction.East
     | _ -> failwith "todo"
+
+let move instructions (robot: Robot) =
+    
+    let directionUpdate = nextDirection robot.direction instructions
+    
+    { robot with direction = directionUpdate }
