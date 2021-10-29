@@ -6,12 +6,6 @@ type Direction = North | East | South | West
 type Position = int * int
 type Robot = { direction: Direction; position: Position }
 
-
-let xxx =
-    FSharpType.GetUnionCases typeof<Direction>
-    |> Array.toList
-    |> List.indexed
-
 let create direction position =
         { direction = direction; position = position }
 
