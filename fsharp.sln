@@ -65,6 +65,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "QueenAttack", "queen-attack
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "RobotSimulator", "robot-simulator\RobotSimulator.fsproj", "{FA4AB04A-0B53-4E9A-B271-5B9389E2BB49}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Sieve", "sieve\Sieve.fsproj", "{0832DB17-7652-4CEB-8CF5-3F83596BB9A9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -450,5 +452,17 @@ Global
 		{FA4AB04A-0B53-4E9A-B271-5B9389E2BB49}.Release|x64.Build.0 = Release|Any CPU
 		{FA4AB04A-0B53-4E9A-B271-5B9389E2BB49}.Release|x86.ActiveCfg = Release|Any CPU
 		{FA4AB04A-0B53-4E9A-B271-5B9389E2BB49}.Release|x86.Build.0 = Release|Any CPU
+		{0832DB17-7652-4CEB-8CF5-3F83596BB9A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0832DB17-7652-4CEB-8CF5-3F83596BB9A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0832DB17-7652-4CEB-8CF5-3F83596BB9A9}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{0832DB17-7652-4CEB-8CF5-3F83596BB9A9}.Debug|x64.Build.0 = Debug|Any CPU
+		{0832DB17-7652-4CEB-8CF5-3F83596BB9A9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0832DB17-7652-4CEB-8CF5-3F83596BB9A9}.Debug|x86.Build.0 = Debug|Any CPU
+		{0832DB17-7652-4CEB-8CF5-3F83596BB9A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0832DB17-7652-4CEB-8CF5-3F83596BB9A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0832DB17-7652-4CEB-8CF5-3F83596BB9A9}.Release|x64.ActiveCfg = Release|Any CPU
+		{0832DB17-7652-4CEB-8CF5-3F83596BB9A9}.Release|x64.Build.0 = Release|Any CPU
+		{0832DB17-7652-4CEB-8CF5-3F83596BB9A9}.Release|x86.ActiveCfg = Release|Any CPU
+		{0832DB17-7652-4CEB-8CF5-3F83596BB9A9}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
