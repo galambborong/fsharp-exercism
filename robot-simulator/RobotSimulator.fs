@@ -46,5 +46,4 @@ let mapToDirectionOrPosition robot instruction =
 
 let move instructions robot =
     instructions
-    |> Seq.toList
     |> Seq.fold mapToDirectionOrPosition robot
