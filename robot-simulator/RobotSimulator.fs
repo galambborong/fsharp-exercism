@@ -16,21 +16,33 @@ let create direction position =
     { direction = direction
       position = position }
 
+let turnRight robot =
+    match robot.direction with
+    | North -> { robot with direction = East }
+    | East -> { robot with direction = South }
+    | West -> { robot with direction = North }
+    | South -> { robot with direction = West }
+
+let turnLeft robot =
+    match robot.direction with
+    | North -> { robot with direction = West }
+    | East -> { robot with direction = North }
+    | South -> { robot with direction = East }
+    | West -> { robot with direction = South }
+
+let advance robot =
+    match robot.direction, robot.position with
+    | North, (x, y) -> { robot with position = (x, y + 1) }
+    | East, (x, y) -> { robot with position = (x + 1, y) }
+    | South, (x, y) -> { robot with position = (x, y - 1) }
+    | West, (x, y) -> { robot with position = (x - 1, y) }
+
 let mapToDirectionOrPosition robot instruction =
-    match robot.direction, robot.position, instruction with
-    | North, _, 'R' -> { robot with direction = East }
-    | North, _, 'L' -> { robot with direction = West }
-    | East, _, 'R' -> { robot with direction = South }
-    | East, _, 'L' -> { robot with direction = North }
-    | South, _, 'R' -> { robot with direction = West }
-    | South, _, 'L' -> { robot with direction = East }
-    | West, _, 'R' -> { robot with direction = North }
-    | West, _, 'L' -> { robot with direction = South }
-    | North, (x, y), 'A' -> { robot with position = (x, y + 1) }
-    | East, (x, y), 'A' -> { robot with position = (x + 1, y) }
-    | South, (x, y), 'A' -> { robot with position = (x, y - 1) }
-    | West, (x, y), 'A' -> { robot with position = (x - 1, y) }
-    | _ -> failwith "Invalid input"
+    match instruction with
+    | 'R' -> turnRight robot
+    | 'L' -> turnLeft robot
+    | 'A' -> advance robot
+    | _ -> failwith "Invalid instruction"
 
 let move instructions robot =
     instructions
