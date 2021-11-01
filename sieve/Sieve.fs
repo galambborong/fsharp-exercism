@@ -1,3 +1,4 @@
 ﻿module Sieve
 
-let primes limit = failwith "You need to implement this function."
+let primes limit =
+    [2..limit]
