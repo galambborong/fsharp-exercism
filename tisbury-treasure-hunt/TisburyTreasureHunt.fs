@@ -11,10 +11,19 @@ let convertCoordinate coordinate =
     int list.Head, char list.[1]
 
 let compareRecords (azarasData: string * string) (ruisData: string * (int * char) * string) : bool =
-    failwith "Please implement the 'compareRecords' function"
+    let aCoordinate = azarasData |> getCoordinate |> convertCoordinate
+    let _, rCoordinate, _ = ruisData
+    aCoordinate = rCoordinate
 
 let createRecord
     (azarasData: string * string)
     (ruisData: string * (int * char) * string)
     : (string * string * string * string) =
-    failwith "Please implement the 'createRecord' function"
+    
+    let r1, r2, r3 = ruisData
+        
+    match compareRecords azarasData ruisData with
+    | true ->
+        (snd azarasData, r1, r3, fst azarasData)
+    | false ->
+        ("", "", "", "")
