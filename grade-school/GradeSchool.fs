@@ -2,20 +2,18 @@
 
 type School = Map<int, string list>
 
-let empty: School = s(0, [""])
+let empty: School = Map []
 
 let add (student: string) (grade: int) (school: School) =
-    printfn $"Grade: {school}"
-    let list = match school.ContainsKey(grade) with
-                | true -> school.[grade] @ [student]
-                | false -> List.empty
-    list
+    let gradeExists = school |> Map.tryFind grade
     
-    match school.ContainsKey(grade) with
-    | false -> school.Add(grade, [student])
-    | true -> school.Add(grade, list)
+    match gradeExists with
+    | None -> school.Add(grade, [student])
+    | Some _ -> school
     
-    // add "w" 1 school
+    
+    
+// add "p" 1 a
 
 let roster (school: School): string list = failwith "You need to implement this function."
 
