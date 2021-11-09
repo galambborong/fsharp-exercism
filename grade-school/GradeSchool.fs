@@ -10,6 +10,6 @@ let add student grade (school: School) : School =
     | None -> school.Add(grade, [ student ])
     | Some currentGradeStudents -> school.Add(grade, currentGradeStudents @ [ student ])
 
-let roster (school: School) = school |> Map.values |> List.concat
+let roster (school: School) = school |> Map.values |> List.concat |> List.sort
 let grade (number: int) (school: School) : string list =
     failwith "You need to implement this function."
