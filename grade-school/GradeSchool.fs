@@ -5,19 +5,21 @@ type School = Map<int, string list>
 let empty: School = Map []
 
 let add student grade (school: School) : School =
-    // TODO Check this works without pattern match
     match school.TryFind grade with
     | None -> school.Add(grade, [ student ])
     | Some currentGradeStudents -> school.Add(grade, currentGradeStudents @ [ student ])
-
-let roster (school: School) = 
+    
+let sortSchoolValues (list: string list option) =
+    list.Value
+    |> List.sort
+    
+let roster (school: School) =
     school
     |> Map.keys
-    |> Seq.map school.TryFind
-    |> Seq.map (fun (elem: string list option) -> elem.Value |> List.sort)
+    |> Seq.map (school.TryFind >> sortSchoolValues)
     |> List.concat
-    
-let grade (number: int) (school: School) : string list =
+
+let grade number (school: School) =
     match school.TryFind number with
-    | Some (strList: string list) -> List.sort strList
+    | Some strList -> List.sort strList
     | None -> List.empty
