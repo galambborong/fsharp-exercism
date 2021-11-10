@@ -18,4 +18,6 @@ let roster (school: School) =
     |> List.concat
     
 let grade (number: int) (school: School) : string list =
-    failwith "You need to implement this function."
+    match school.TryFind number with
+    | Some (strList: string list) -> List.sort strList
+    | None -> List.empty
