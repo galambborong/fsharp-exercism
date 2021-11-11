@@ -1,15 +1,15 @@
 ﻿module DifferenceOfSquares
 
-let multiplyBySelf n = n * n
+let square n = n * n
 
 let squareOfSum number =
     [1..number]
     |> List.sum
-    |> multiplyBySelf
+    |> square
 
 let sumOfSquares number =
     [1..number]
-    |> List.sumBy multiplyBySelf
+    |> List.sumBy square
 
 let differenceOfSquares number =
     max (squareOfSum number) (sumOfSquares number) - min (squareOfSum number) (sumOfSquares number)
