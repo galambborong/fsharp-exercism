@@ -1,7 +1,15 @@
 ﻿module DifferenceOfSquares
 
-let squareOfSum (number: int): int = failwith "You need to implement this function."
+let multiplyBySelf n = n * n
 
-let sumOfSquares (number: int): int = failwith "You need to implement this function."
+let squareOfSum number =
+    [1..number]
+    |> List.sum
+    |> multiplyBySelf
 
-let differenceOfSquares (number: int): int = failwith "You need to implement this function."
+let sumOfSquares number =
+    [1..number]
+    |> List.sumBy multiplyBySelf
+
+let differenceOfSquares number =
+    max (squareOfSum number) (sumOfSquares number) - min (squareOfSum number) (sumOfSquares number)
