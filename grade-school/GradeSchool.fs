@@ -9,13 +9,10 @@ let add student grade (school: School) =
     | Some currentStudents -> school.Add(grade, currentStudents @ [ student ])
     | None -> school.Add(grade, [ student ])
 
-let sortStudentsInGrade (list: string list option) = list.Value |> List.sort
-
-let roster school =
+let roster (school: School) =
     school
-    |> Map.keys
-    |> Seq.map (school.TryFind >> sortStudentsInGrade)
-    |> List.concat
+    |> Map.toList
+    |> List.collect (snd >> List.sort)
 
 let grade number (school: School) =
     match school.TryFind number with
