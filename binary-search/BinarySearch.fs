@@ -35,8 +35,9 @@ let find (input: int[]) (value: int) =
     match input |> Array.isEmpty with
     | true -> None
     | false ->
-        match input.[0] with
-        | y when y > value -> None
+        match input.[0], input.[input.Length - 1] with
+        | y, _ when y > value -> None
+        | _, y when y < value -> None
         | _ -> checkIndex initialIndex value
         
 // find [|1; 2; 3|] 2
