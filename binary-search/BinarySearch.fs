@@ -2,8 +2,6 @@
 
 open System
 
-let x = [|1;2;3|]
-
 let calculateHalf i = Math.Floor(i / 2 |> float) |> int
 
 let find (input: int[]) (value: int) =
@@ -19,34 +17,33 @@ let find (input: int[]) (value: int) =
         
         // TODO We need to confirm that the next index +/- has been checked already
         
-        match input.[i], i, length with
-        | valueAtIndex, _, _ when valueAtIndex = x -> Some i
-        | valueAtIndex, _, _ when valueAtIndex > x ->
+        match input.[i] with
+        | valueAtIndex when valueAtIndex = x -> Some i
+        | valueAtIndex when valueAtIndex > x ->
             let nextI = calculateHalf i
             match nextI with
             | nextI when nextI < 0 -> None
             | _ -> checkIndex nextI x
-        | valueAtIndex, _, _ when valueAtIndex < x ->
+        | valueAtIndex when valueAtIndex < x ->
             let nextI = calculateHalf i
             match nextI with
             | nextI when (nextI + i) = initialIndex -> checkIndex (i + nextI - 1) x
-            | nextI when (nextI + i) > length -> None
+//            | nextI when (nextI + i) > length -> None
             | _ -> checkIndex (i + nextI) x
-        | valueAtIndex, i, len when i = len && valueAtIndex <> x -> None
-        | valueAtIndex, i, _ when i = 0 && valueAtIndex <> x -> None
         | _ -> None 
     
     match input |> Array.isEmpty with
     | true -> None
     | false ->
         match input.[0] with
-        | y when y < value -> None
+        | y when y > value -> None
         | _ -> checkIndex initialIndex value
         
 // find [|1; 2; 3|] 2
 // find [|6|] 6
 
 // find [|1;3;4;6;8;9;11|] 11
+// find [|1;3;4;6;8;9;11|] 6
 // find [|1;3;4;6;8;9;11|] 1
 // find [|1; 3; 5; 8; 13; 21; 34; 55; 89; 144; 233; 377|] 21
 // find [|1; 3; 5; 8; 9; 11|] 0
