@@ -13,7 +13,7 @@ let find (input: int[]) (value: int) =
     let rec checkIndex i x =
         printf $"i: {i} :: x: {x}\n"
         printf $"value at index {i} = {input.[i]}\n"
-        printf $"input.[i] = x: {input.[i] = x}\n\n"
+        printf $"input.[i] = {x}: {input.[i] = x}\n\n"
         
         // TODO We need to confirm that the next index +/- has been checked already
         
@@ -27,9 +27,9 @@ let find (input: int[]) (value: int) =
         | valueAtIndex when valueAtIndex < x ->
             let nextI = calculateHalf i
             match nextI with
+            | nextI when (nextI + 1) <= length -> checkIndex (i + nextI) x
             | nextI when (nextI + i) = initialIndex -> checkIndex (i + nextI - 1) x
-//            | nextI when (nextI + i) > length -> None
-            | _ -> checkIndex (i + nextI) x
+            | _ -> None
         | _ -> None 
     
     match input |> Array.isEmpty with
@@ -44,6 +44,7 @@ let find (input: int[]) (value: int) =
 // find [|6|] 6
 
 // find [|1;3;4;6;8;9;11|] 11
+// find [|1;3;4;6;8;9;11|] 7
 // find [|1;3;4;6;8;9;11|] 6
 // find [|1;3;4;6;8;9;11|] 1
 // find [|1; 3; 5; 8; 13; 21; 34; 55; 89; 144; 233; 377|] 21
