@@ -19,20 +19,21 @@ let find (input: int[]) (value: int) =
         
         // TODO We need to confirm that the next index +/- has been checked already
         
-        match input.[i] with
-        | valueAtIndex when valueAtIndex = x -> Some i
-        | valueAtIndex when valueAtIndex > x ->
+        match input.[i], i, length with
+        | valueAtIndex, _, _ when valueAtIndex = x -> Some i
+        | valueAtIndex, _, _ when valueAtIndex > x ->
             let nextI = calculateHalf i
             match nextI with
             | nextI when nextI < 0 -> None
             | _ -> checkIndex nextI x
-        | valueAtIndex when valueAtIndex < x ->
+        | valueAtIndex, _, _ when valueAtIndex < x ->
             let nextI = calculateHalf i
             match nextI with
-//            | nextI when nextI > length -> None
             | nextI when (nextI + i) = initialIndex -> checkIndex (i + nextI - 1) x
             | nextI when (nextI + i) > length -> None
             | _ -> checkIndex (i + nextI) x
+        | valueAtIndex, i, len when i = len && valueAtIndex <> x -> None
+        | valueAtIndex, i, _ when i = 0 && valueAtIndex <> x -> None
         | _ -> None 
     
     match input |> Array.isEmpty with
